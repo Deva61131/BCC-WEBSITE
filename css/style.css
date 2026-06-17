@@ -9,6 +9,8 @@ body{
     background:#ffffff;
     color:#222;
     overflow-x:hidden;
+
+    padding-top:90px;
 }
 
 /* NAVBAR */
@@ -53,9 +55,10 @@ body{
 }
 
 .menu-toggle{
-    display:none;
-    color:white;
+    display:block;
+    margin-left:auto;
     font-size:28px;
+    color:white;
     cursor:pointer;
 }
 .logo{
@@ -129,7 +132,7 @@ nav a:hover{
 .hero{
     min-height:90vh;
 
-    padding:80px 60px;
+    padding-top: 120px;
 
     background:
     linear-gradient(

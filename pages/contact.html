@@ -139,45 +139,60 @@
 
     <div class="contact-form-box">
 
-        <h2>मेसेज पाठवा</h2>
+    <h2>मेसेज पाठवा</h2>
 
-        <form>
+    <form onsubmit="sendWhatsApp(); return false;">
 
-            <input type="text"
-            placeholder="तुमचे नाव"
-            required>
+        <input type="text"
+               id="name"
+               placeholder="तुमचे नाव"
+               required>
 
-            <input type="tel"
-            placeholder="मोबाईल नंबर"
-            required>
+        <input type="tel"
+               id="mobile"
+               placeholder="मोबाईल नंबर"
+               required>
 
-            <textarea
-            rows="6"
-            placeholder="तुमचा संदेश"></textarea>
+        <textarea id="message"
+                  rows="6"
+                  placeholder="तुमचा संदेश"></textarea>
 
-            <button type="submit">
+        <button type="submit">
 
-                संदेश पाठवा
+            संदेश पाठवा
 
-            </button>
+        </button>
 
-        </form>
+    </form>
 
-    </div>
+</div>
 
-</section>
+<script>
 
+function sendWhatsApp(){
 
-<!-- FLOATING WHATSAPP -->
+    let name =
+    document.getElementById("name").value;
 
-<a href="https://wa.me/919834445817"
-class="floating-whatsapp">
+    let mobile =
+    document.getElementById("mobile").value;
 
-    <i class="fab fa-whatsapp"></i>
+    let message =
+    document.getElementById("message").value;
 
-</a>
+    let text =
+    "नाव: " + name +
+    "%0Aमोबाईल: " + mobile +
+    "%0Aसंदेश: " + message;
 
+    window.open(
+    "https://wa.me/919767192091?text=" + text,
+    "_blank"
+    );
 
+}
+
+</script>
 <!-- FLOATING CALL -->
 
 <a href="tel:+919834445817"
