@@ -14,20 +14,50 @@ body{
 /* NAVBAR */
 
 .navbar{
-    background:#111;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
 
-    padding:18px 50px;
+    background:#000;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
 
-    position:sticky;
-    top:0;
-    z-index:1000;
+    padding:15px 40px;
+
+    z-index:9999;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.4);
 }
 
+.navbar nav{
+    display:flex;
+    gap:25px;
+}
+
+.navbar nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar nav a:hover{
+    color:#ffd700;
+}
+
+.navbar nav a.active{
+    color:red;
+}
+
+.menu-toggle{
+    display:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
 .logo{
     display:flex;
     align-items:center;
@@ -1627,60 +1657,21 @@ nav a:hover{
 
     .menu-toggle{
         display:block;
+        font-size:28px;
+        color:white;
+        cursor:pointer;
     }
 
     .navbar{
         flex-wrap:wrap;
     }
 
-    .navbar nav{
-        display:none;
-        width:100%;
-        flex-direction:column;
-        background:#111;
-        margin-top:15px;
-        border-radius:15px;
-        padding:15px 0;
-    }
-
-    .navbar nav.active{
-        display:flex;
-    }
-
-    .navbar nav a{
-        padding:12px;
-        text-align:center;
-        font-size:18px;
-    }
-}
-/* ===== PREMIUM RESPONSIVE MENU ===== */
-
-.menu-toggle{
-    display:none;
-    font-size:30px;
-    color:white;
-    cursor:pointer;
-}
-
-@media(max-width:768px){
-
-    .menu-toggle{
-        display:block;
-        margin-left:auto;
-    }
-
-    .navbar{
-        padding:20px;
-    }
-
     #navMenu{
         display:none;
         width:100%;
         flex-direction:column;
-        background:#111;
+        background:#000;
         margin-top:15px;
-        border-radius:15px;
-        overflow:hidden;
     }
 
     #navMenu.active{
@@ -1690,10 +1681,7 @@ nav a:hover{
     #navMenu a{
         padding:15px;
         text-align:center;
-        border-bottom:1px solid rgba(255,255,255,0.1);
+        border-bottom:1px solid #222;
     }
 
-    #navMenu a:last-child{
-        border-bottom:none;
-    }
 }
