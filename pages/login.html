@@ -81,60 +81,38 @@
         <h2>Student Login</h2>
 
         <p>
-            आपला Student ID किंवा मोबाईल नंबर वापरून लॉगिन करा.
+            आपला Student ID 
         </p>
 
-        <form>
+        <form onsubmit="loginUser(); return false;">
 
-            <input
-            type="text"
-            placeholder="Student ID / मोबाईल नंबर"
-            required>
+    <input
+    type="text"
+    id="username"
+    placeholder="Username"
+    required>
 
+    <input
+    type="password"
+    id="password"
+    placeholder="पासवर्ड"
+    required>
 
-            <input
-            type="password"
-            placeholder="पासवर्ड"
-            required>
+    <button
+    type="submit"
+    class="login-btn">
 
+        लॉगिन करा
 
-            <button
-            type="submit"
-            class="login-btn">
+    </button>
 
-                लॉगिन करा
-
-            </button>
-
-        </form>
-
-
-        <a href="#"
-        class="forgot-password">
-
-            पासवर्ड विसरलात?
-
-        </a>
-
-    </div>
-
-</section>
+</form>
 
 
-<section class="login-note">
-
-    <h2>⭐ सूचना</h2>
-
-    <p>
-        सध्या हा Demo Login Interface आहे.
-        भविष्यात Student Dashboard,
-        Test Results आणि Fee Tracking जोडले जातील.
-    </p>
-
-</section>
 
 
-<a href="https://wa.me/919834445817"
+
+<a href="https://wa.me/919767192091"
 class="floating-whatsapp">
 
     <i class="fab fa-whatsapp"></i>
@@ -142,12 +120,74 @@ class="floating-whatsapp">
 </a>
 
 
-<a href="tel:+919834445817"
+<a href="tel:+919767192091"
 class="floating-call white-call">
 
     <i class="fas fa-phone"></i>
 
-</a>
+<script type="module">
+    const savedUser =
+localStorage.getItem("currentUser");
+
+if(savedUser){
+
+    window.location.href =
+    "dashboard.html";
+
+}
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getAuth, signInWithEmailAndPassword }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB-JtY_GeuRAwiIepfG8xTx_S8ZR9gFXeM",
+  authDomain: "bcc-classes-78a51.firebaseapp.com",
+  projectId: "bcc-classes-78a51",
+  storageBucket: "bcc-classes-78a51.firebasestorage.app",
+  messagingSenderId: "1016779208857",
+  appId: "1:1016779208857:web:df9e06477630cc6068e008"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.loginUser = function(){
+
+    const username =
+    document.getElementById("username").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const email = username + "@bcc.com";
+
+    signInWithEmailAndPassword(auth, email, password)
+
+    .then(() => {
+
+    localStorage.setItem(
+        "currentUser",
+        username
+    );
+
+    alert("login complet");
+
+    window.location.href =
+    "dashboard.html";
+
+})
+
+    .catch(() => {
+
+        alert("incorrect");
+
+    });
+
+}
+
+</script>
 <script src="../js/script.js"></script>
 </body>
 </html>
